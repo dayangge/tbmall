@@ -1,0 +1,32 @@
+{
+  "name": "tbmall",
+  "version": "1.0.0",
+  "description": "天宝商城",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "set WEBPACK_ENV = 'env && webpack-dev-server --open",
+    "dist":"set WEBPACK_ENV = 'env && webpack -p"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dayangge/tbmall.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dayangge/tbmall/issues"
+  },
+  "homepage": "https://github.com/dayangge/tbmall#readme",
+  "devDependencies": {
+    "css-loader": "^0.28.7",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^1.1.5",
+    "html-loader": "^0.5.1",
+    "html-webpack-plugin": "^2.30.1",
+    "style-loader": "^0.19.0",
+    "url-loader": "^0.6.2",
+    "webpack": "^3.8.1",
+    "webpack-dev-server": "^2.9.4"
+  }
+}
