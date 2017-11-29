@@ -19,7 +19,11 @@ var getHtmlConfig = function (name,title) {
 var config = {
     entry: {
         'index':'./src/page/index/index.js',
-        'login':'./src/page/login/index.js',
+        'user-login':'./src/page/user-login/index.js',
+        'user-register':'./src/page/user-register/index.js',
+        'user-pass-reset':'./src/page/user-pass-reset/index.js',
+        'user-center':'./src/page/user-center/index.js',
+        'user-center-update':'./src/page/user-center-update/index.js',
         'result':'./src/page/result/index.js'
     },
     output: {
@@ -32,13 +36,68 @@ var config = {
     },
     devServer: {
         inline: true,//实时刷新
-        proxy:{
+        proxy:[{
             '/product/list.do': {
                 target: 'http://happymmall.com',
                 changeOrigin: true,
                 secure: false
+            },
+            '/user/login.do': {
+                target: 'http://happymmall.com',
+                changeOrigin: true,
+                secure: false
+            },
+            '/user/check_valid.do': {
+                target: 'http://happymmall.com',
+                changeOrigin: true,
+                secure: false
+            },
+            '/user/register.do': {
+                target: 'http://happymmall.com',
+                changeOrigin: true,
+                secure: false
+            },
+            '/user/forget_get_question.do': {
+                target: 'http://happymmall.com',
+                changeOrigin: true,
+                secure: false
+            },
+            'user/forget_check_answer.do':{
+                target: 'http://happymmall.com',
+                changeOrigin: true,
+                secure: false
+            },
+            'user/forget_reset_password.do':{
+                target: 'http://happymmall.com',
+                changeOrigin: true,
+                secure: false
+            },
+            'user/get_information.do':{
+                target: 'http://happymmall.com',
+                changeOrigin: true,
+                secure: false
+            },
+            'user/update_information.do':{
+                target: 'http://happymmall.com',
+                changeOrigin: true,
+                secure: false
+            },
+            'user/reset_password.do':{
+                target: 'http://happymmall.com',
+                changeOrigin: true,
+                secure: false
+            },
+            'user/get_user_info.do':{
+                target: 'http://happymmall.com',
+                changeOrigin: true,
+                secure: false
+            },
+            './user/logout.do':{
+                target: 'http://happymmall.com',
+                changeOrigin: true,
+                secure: false
             }
-        }
+        }]
     },
     module: {
         rules: [
@@ -101,8 +160,12 @@ var config = {
         }),
         new ExtractTextPlugin("css/[name].css"),
         new HtmlWebpackPlugin(getHtmlConfig('index','首页')),
-        new HtmlWebpackPlugin(getHtmlConfig('login','用户登录')),
-        new HtmlWebpackPlugin(getHtmlConfig('result','操作'))
+        new HtmlWebpackPlugin(getHtmlConfig('user-login','用户登录')),
+        new HtmlWebpackPlugin(getHtmlConfig('result','操作结果')),
+        new HtmlWebpackPlugin(getHtmlConfig('user-pass-reset','找回密码')),
+        new HtmlWebpackPlugin(getHtmlConfig('user-register','注册')),
+        new HtmlWebpackPlugin(getHtmlConfig('user-center','个人中心')),
+        new HtmlWebpackPlugin(getHtmlConfig('user-center-update','修改个人信息'))
 
     ]
 };
